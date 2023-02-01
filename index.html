@@ -100,6 +100,12 @@
         bottom: -30%;
       }
 
+      .container {
+        display: none;
+      }
+     #inpt3:focus + #container{
+      display: inline;
+     }
       .botão:hover {
         box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
           0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -169,8 +175,10 @@
         <br />
         <input type="number" class="estilo" placeholder="Pessoas" id="inpt2" />
         <br />
-        <input type="text" class="estilo" placeholder="Estado" id="inpt3" />
-
+        <input type="text" class="estilo" placeholder="Estado" id="inpt3"  />
+        <div class="container">
+          <input type="text" class="estilo" placeholder="Cidade" id="inpt4"  />
+        </div>
         <datalist id="opcoes">
           <option value="AC"></option>
           <option value="AL"></option>
@@ -200,7 +208,6 @@
           <option value="SE"></option>
           <option value="TO"></option>
         </datalist>
-        <input type="text" class="estilo2" placeholder="Cidade" id="inpt4" />
       </form>
       <button class="botão" onmousedown="submit()" id="inpt5">
         <b>Concluir</b>
@@ -209,8 +216,8 @@
       <footer></footer>
     </div>
     <script>
-      const i3 = document.getElementById("inpt3");
-      const opc = document.getElementById("opcoes");
+      let i3 = document.getElementById("inpt3");
+      let opc = document.getElementById("opcoes");
       i3.setAttribute("list", "opcoes");
       i3.innerHTML = "";
 
@@ -220,6 +227,7 @@
       function submit() {
         var i1 = document.getElementById("inpt1");
         var i2 = document.getElementById("inpt2");
+        var i4 = document.getElementById("inpt4");
         var i5 = document.getElementById("inpt5");
         if (
           i1.value == 0 ||
